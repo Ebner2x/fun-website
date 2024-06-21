@@ -222,8 +222,6 @@
             if (response.ok) {
                 const result = await response.text();
                 alert(result);
-                console.log('call succeeded!!');
-                console.log('success');
             } else {
                 throw new Error('Network response was not ok.');
             }
@@ -232,7 +230,6 @@
             alert('There was a problem with your booking request.');
         }
     });
-    
     </script>
 
 </body>
