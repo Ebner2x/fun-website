@@ -205,31 +205,31 @@
 
     // JavaScript for handling the form submission
     document.getElementById('booking-form').addEventListener('submit', async function(event) {
-    event.preventDefault();
+        event.preventDefault();
 
-    const formData = new FormData(this);
-    const data = Object.fromEntries(formData.entries());
+        const formData = new FormData(this);
+        const data = Object.fromEntries(formData.entries());
 
-    try {
-        const response = await fetch('https://booking-system-backend-huj6.onrender.com/book', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(data)
-        });
+        try {
+            const response = await fetch('https://booking-system-backend-huj6.onrender.com/book', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
 
-        if (response.ok) {
-            const result = await response.text();
-            alert(result);
-        } else {
-            throw new Error('Network response was not ok.');
+            if (response.ok) {
+                const result = await response.text();
+                alert(result);
+            } else {
+                throw new Error('Network response was not ok.');
+            }
+        } catch (error) {
+            console.error('There has been a problem with your fetch operation:', error);
+            alert('There was a problem with your booking request.');
         }
-    } catch (error) {
-        console.error('There has been a problem with your fetch operation:', error);
-        alert('There was a problem with your booking request.');
-    }
-});
+    });
 
     </script>
 
